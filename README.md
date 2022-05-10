@@ -23,6 +23,8 @@ Do you want to join the engineering team at Connect, Inc.? Apply [here](https://
 
 3. Make a Pull Request
 
+Don't create a pull request to this repository. Please make a pull request on your repository.
+
 4. Send us your Pull Request url that we can access
 
 # Get Started
