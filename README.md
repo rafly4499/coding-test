@@ -1,22 +1,45 @@
 # Coding Test
 
-Thank you for applying to us. We have created this exercise in order to gain insights into your development skills.
+Do you want to join the engineering team at Connect, Inc.? Apply [here](https://forms.gle/PKDJNAdAgKn32DXC7) if you have not do.
+
+## Table of Contents
+
+- [Procedure](#procedure)
+- [Get Started](#get-started)
+  - [Requirements](#requirements)
+  - [Setup](#setup)
+  - [Executing](#executing)
+  - [Testing](#testing)
+  - [Architecture](#architecture)
+- [Specifications](#specifications)
+  - [APIs](#APIs)
+  - [APIs in the future](#apis-in-the-future)
+
+# Procedure
+
+1. Fork this repository
+
+2. [Design and Refactor](https://github.com/connect-developer/coding-test/wiki)
+
+3. Make a Pull Request
+
+4. Send us your Pull Request url that we can access
+
+# Get Started
 
 ## Requirements
 
 - [Docker](https://docs.docker.com/desktop/)
 - [Composer](https://getcomposer.org/)
 
-## Get started
-
-### Setup
+## Setup
 
 ```
 $ cp .env.example .env
 $ composer install
 ```
 
-### Executing
+## Executing
 
 Here is the case with Laravel sail. It depends on you.
 
@@ -26,7 +49,7 @@ $ ./vendor/bin/sail artisan key:generate
 $ ./vendor/bin/sail artisan migrate:fresh --seed
 ```
 
-### Testing
+## Testing
 
 Here is the case with Laravel sail. It depends on you.
 
@@ -44,7 +67,7 @@ flowchart LR
   c -- Resource -->  Resource
 ```
 
-# Requirement Specifications
+# Specifications
 
 This repository provides an API for admins to create and publish job data.
 
