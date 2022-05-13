@@ -2,6 +2,8 @@
 
 Do you want to join the engineering team at Connect, Inc.? Apply [here](https://forms.gle/PKDJNAdAgKn32DXC7) if you have not do.
 
+We have created this coding test in order to gain insights into your development skills. More details are down below.
+
 ## Table of Contents
 
 - [Procedure](#procedure)
@@ -20,6 +22,8 @@ Do you want to join the engineering team at Connect, Inc.? Apply [here](https://
 1. Fork this repository
 
 2. [Design and Refactor](https://github.com/connect-developer/coding-test/wiki)
+
+Please go to this URL and read this through. It explains more details of this coding test and imaginary scenario.
 
 3. Make a Pull Request
 
