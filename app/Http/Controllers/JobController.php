@@ -2,108 +2,60 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\JobStatus;
 use App\Http\Requests\JobStoreRequest;
 use App\Http\Resources\JobResource;
-use App\Models\Job;
+use App\Services\JobService;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
-    /**
-     * Get a list of opening jobs to applicants.
-     *
-     * @param Request $request
-     * @return void
-     */
+    protected $jobService;
+
+    public function __construct(JobService $jobService)
+    {
+        $this->jobService = $jobService;
+    }
+
     public function view(Request $request)
     {
-        $jobs = Job::where('status', JobStatus::Open)->paginate($request->per_page);
-        return JobResource::collection($jobs);
+        $result = $this->jobService->getAllOpen($request);
+        return JobResource::collection($result);
     }
 
-    /**
-     * Show a opening job to applicants.
-     *
-     * @param integer $id
-     * @return void
-     */
     public function show(int $id)
     {
-        $job = Job::where('status', JobStatus::Open)->find($id);
-        return new JobResource($job);
+        $result = $this->jobService->findByIdOpen($id);
+        return new JobResource($result);
     }
 
-    /**
-     * Get a list of opening jobs to applicants by admin.
-     *
-     * @param Request $request
-     * @return void
-     */
     public function viewByAdmin(Request $request)
     {
-        $jobs = Job::paginate($request->per_page);
-        return JobResource::collection($jobs);
+        $result = $this->jobService->getAll($request);
+        return JobResource::collection($result);
+
     }
 
-    /**
-     * Show a opening job to applicants by admin.
-     *
-     * @param integer $id
-     * @return void
-     */
-    public function showAdmin(int $id)
+    public function showByAdmin(int $id)
     {
-        $job = Job::find($id);
-        return new JobResource($job);
+        $result = $this->jobService->findById($id);
+        return new JobResource($result);
     }
 
-    /**
-     * Register a job by admin.
-     *
-     * @param JobStoreRequest $request
-     * @return void
-     */
     public function create(JobStoreRequest $request)
     {
-        $job = new Job;
-        $job->company_id = $request->company_id;
-        $job->job_title_id = $request->job_title_id;
-        $job->description = $request->description;
-        $job->status = JobStatus::fromKey($request->status);
-        $job->save();
-        return new JobResource($job);
+        $result = $this->jobService->create($request);
+        return new JobResource($result);
     }
 
-    /**
-     * Update job by admin.
-     *
-     * @param JobStoreRequest $request
-     * @param integer $id
-     * @return void
-     */
     public function update(JobStoreRequest $request, int $id)
     {
-        $job = Job::find($id);
-        $job->company_id = $request->company_id;
-        $job->job_title_id = $request->job_title_id;
-        $job->description = $request->description;
-        $job->status = JobStatus::fromKey($request->status);
-        $job->save();
-        return new JobResource($job);
+        $result = $this->jobService->update($request, $id);
+        return new JobResource($result);
     }
 
-    /**
-     * Delete job by admin.
-     *
-     * @param JobStoreRequest $request
-     * @param integer $id
-     * @return void
-     */
     public function delete(int $id)
     {
-        $job = Job::find($id);
-        $job->delete();
-        return response()->noContent();
+        $result = $this->jobService->deleteJob($id);
+        return response()->json($result);
     }
 }
