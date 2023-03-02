@@ -14,6 +14,14 @@ class Job extends Model
         'status' => JobStatus::class,
     ];
 
+    public function scopeOpen($query)
+    {
+        return $query->where('status', JobStatus::Open);
+    }
+    public function scopeClosed($query)
+    {
+        return $query->where('status', JobStatus::Closed);
+    }
     public function company()
     {
         return $this->belongsTo(Company::class);
