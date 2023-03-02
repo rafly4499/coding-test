@@ -1,4 +1,5 @@
 <?php
+# In the controller, I changed it from the previous controller to using the service pattern.
 
 namespace App\Http\Controllers;
 

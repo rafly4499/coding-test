@@ -1,5 +1,9 @@
 <?php
 
+# Why did I make the Job Service class? because it refers to the Service Layer for Job CRUD Function.
+# This is a design pattern where the logic is separated so that the logic can be used again without us rewriting the same logic.
+# Usually, it will be used for functions that are repeatedly used in controllers or testing.
+
 namespace App\Services;
 
 use App\Enums\JobStatus;

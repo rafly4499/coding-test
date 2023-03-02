@@ -1,4 +1,6 @@
 <?php
+# Implementation Scope Laravel query that we've created and reused in other modules.
+# Query for status Open and Closed according to Enum inisiation.
 
 namespace App\Models;
 
