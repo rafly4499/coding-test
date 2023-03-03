@@ -3,6 +3,7 @@
 # Why did I make the Job Service class? because it refers to the Service Layer for Job CRUD Function.
 # This is a design pattern where the logic is separated so that the logic can be used again without us rewriting the same logic.
 # Usually, it will be used for functions that are repeatedly used in controllers or testing.
+# I've also implemented a Scope Laravel query that we've created and reused in other modules.
 
 namespace App\Services;
 
@@ -19,7 +20,7 @@ class JobService
     public function findByIdOpen($id)
     {
         $job = Job::open()->find($id);
-        return $jobs;
+        return $job;
     }
     public function getAll($request)
     {
@@ -29,7 +30,7 @@ class JobService
     public function findById($id)
     {
         $job = Job::find($id);
-        return $jobs;
+        return $job;
 
     }
     public function create($data): Job
